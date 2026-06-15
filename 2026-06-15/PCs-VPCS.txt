@@ -1,0 +1,9 @@
+VPCS commands (type these in the PC console in GNS3)
+
+# PC1  (LAN1, gateway = R1 f0/0)
+ip 203.0.113.2 255.255.255.248 203.0.113.1
+save
+
+# PC2  (LAN2, gateway = R3 f0/1)
+ip 203.0.113.10 255.255.255.248 203.0.113.9
+save

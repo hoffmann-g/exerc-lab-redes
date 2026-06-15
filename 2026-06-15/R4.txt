@@ -1,0 +1,23 @@
+! ===== R4 =====
+! f0/0 -> R1 | f0/1 -> R3
+enable
+configure terminal
+hostname R4
+!
+interface f0/0
+ ip address 203.0.113.26 255.255.255.252
+ no shutdown
+ exit
+interface f0/1
+ ip address 203.0.113.30 255.255.255.252
+ no shutdown
+ exit
+!
+! Static routes
+ip route 203.0.113.0 255.255.255.248 203.0.113.25   ! LAN1  via R1
+ip route 203.0.113.16 255.255.255.252 203.0.113.25  ! R1-R2 via R1
+ip route 203.0.113.8 255.255.255.248 203.0.113.29   ! LAN2  via R3
+ip route 203.0.113.20 255.255.255.252 203.0.113.29  ! R2-R3 via R3
+!
+end
+write
